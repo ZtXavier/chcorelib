@@ -30,6 +30,11 @@ int stack_backtrace()
 	printk("Stack backtrace:\n");
 
 	// Your code here.
+	// u64*fp = (u64*) *((u64*)read_fp());   //这里进行间接访问
+	// while(fp != 0)
+	// {
+	// 	printk("%lx %lx",*(fp+1))
+	// }
 
 	return 0;
 }

@@ -1,13 +1,13 @@
 #include "../boot/image.h"
 
 SECTIONS
-{
-    . = TEXT_OFFSET;
-    img_start = .;
+{                               //注：. 表示“当前指针”的位置，.段名 表示某个段的位置
+    . = TEXT_OFFSET;            //将当前的指针赋值为TEXT_OFFSET
+    img_start = .;              //将当前的指针赋值给镜像开始的地址(ELF文件入口地址)
     init : {
-        ${init_object}
+        ${init_object}          //指定.init端的内容为init——object,即bootloader编译后的机器吗
     }
-
+                                //定义结束后当前指针自动更新为.init的为结尾地址
     . = ALIGN(SZ_16K);
 
     init_end = ABSOLUTE(.);

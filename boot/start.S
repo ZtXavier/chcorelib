@@ -21,7 +21,7 @@ primary:
 	bl 	arm64_elX_to_el1
 
 	/* Prepare stack pointer and jump to C. */
-	adr 	x0, boot_cpu_stack
+	adr 	x0, boot_cpu_stack				//此处为sp的初始化
 	add 	x0, x0, #0x1000
 	mov 	sp, x0
 
